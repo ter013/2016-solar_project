@@ -1,6 +1,8 @@
 # coding: utf-8
 # license: GPLv3
 
+#привет
+
 from solar_objects import Star, Planet
 
 
