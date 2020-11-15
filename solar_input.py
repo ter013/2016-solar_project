@@ -97,13 +97,11 @@ def write_space_objects_data_to_file(output_filename, space_objects):
         for obj in space_objects:
             if isinstance(obj, Star):
                 t = 'Star' + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' + str(
-                    obj.y) + ' '
-                str(obj.Vx) + ' ' + str(obj.Vy)
+                    obj.y) + ' ' + str(obj.Vx) + ' ' + str(obj.Vy)
                 out_file.write(t + '\n')
             if isinstance(obj, Planet):
                 t = 'Planet' + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' + str(
-                    obj.y) + ' '
-                str(obj.Vx) + ' ' + str(obj.Vy)
+                    obj.y) + ' ' + str(obj.Vx) + ' ' + str(obj.Vy)
                 out_file.write(t + '\n')
 
 
