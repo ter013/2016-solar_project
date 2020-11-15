@@ -49,7 +49,7 @@ def parse_star_parameters(line, star):
     """
 
     s = line.split()
-    star.R = float([1])
+    star.R = float(s[1])
     star.color = s[2]
     star.m = float(s[3])
     star.x = float(s[4])
@@ -95,9 +95,18 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(out_file, "%s %d %s %d %d %d %d %d" % (obj.__name__, obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy))
+            for obj in space_objects:
+                if isinstance(obj, Star):
+                    t = 'Star' + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' + str(
+                        obj.y) + ' '
+                    str(obj.Vx) + ' ' + str(obj.Vy)
+                    out_file.write(t + '\n')
+                if isinstance(obj, Planet):
+                    t = 'Planet' + ' ' + str(obj.R) + ' ' + obj.color + ' ' + str(obj.m) + ' ' + str(obj.x) + ' ' + str(
+                        obj.y) + ' '
+                    str(obj.Vx) + ' ' + str(obj.Vy)
+                    out_file.write(t + '\n')
 
-# FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
